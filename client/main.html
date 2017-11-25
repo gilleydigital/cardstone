@@ -1,0 +1,90 @@
+<head>
+	<title>Cardstone</title>
+</head>
+
+<body>
+	{{> game}}
+</body>
+
+<template name="game">
+	<div class="container">
+		
+		<div class="opp-hand" id="opp-hand">
+			{{#each opp_hand}}
+				{{> card}}
+			{{/each}}
+		</div>
+		
+		<div class="hero opp-hero">
+			<div class="card-health card-circle">{{opp_health}}</div>
+		</div>
+		
+		<div class="mana-bar opp-mana-bar" id="opp-mana-bar">
+			<div class="mana-numbers">
+				<span id="mana-numbers-filled" class="mana-numbers-filled">0</span>
+				/
+				<span id="mana-numbers-max" class="mana-numbers-max">0</span>
+			</div>
+			<div class="mana-crystals">
+				<div id="mana-crystal-1" class="mana-crystal"></div>
+				<div id="mana-crystal-2" class="mana-crystal"></div>
+				<div id="mana-crystal-3" class="mana-crystal"></div>
+				<div id="mana-crystal-4" class="mana-crystal"></div>
+				<div id="mana-crystal-5" class="mana-crystal"></div>
+				<div id="mana-crystal-6" class="mana-crystal"></div>
+				<div id="mana-crystal-7" class="mana-crystal"></div>
+				<div id="mana-crystal-8" class="mana-crystal"></div>
+				<div id="mana-crystal-9" class="mana-crystal"></div>
+				<div id="mana-crystal-10" class="mana-crystal"></div>
+			</div>
+		</div>
+		
+		<div id="opponent-zone" class="opponent-zone"></div>
+		<div id="player-zone" class="player-zone"></div>
+
+		<div class="battlefield">
+			<div class="throughline"></div>
+			<div id="end-turn-button" class="end-turn-button">End Turn</div>
+		</div>
+		
+		<div class="hero">
+			<div class="card-health card-circle">{{player_health}}</div>
+		</div>
+	
+		<div class="handlike hand" id="hand">
+			{{#each hand}}
+				{{> card}}
+			{{/each}}
+		</div> <!-- for storage -->
+		<div class="handlike hand-area" id="hand-area"></div> <!-- for interaction -->
+
+		<div class="mana-bar player-mana-bar" id="player-mana-bar">
+			<div class="mana-numbers">
+				<span id="mana-numbers-filled" class="mana-numbers-filled">0</span>
+				/
+				<span id="mana-numbers-max" class="mana-numbers-max">0</span>
+			</div>
+			<div class="mana-crystals">
+				<div id="mana-crystal-1" class="mana-crystal"></div>
+				<div id="mana-crystal-2" class="mana-crystal"></div>
+				<div id="mana-crystal-3" class="mana-crystal"></div>
+				<div id="mana-crystal-4" class="mana-crystal"></div>
+				<div id="mana-crystal-5" class="mana-crystal"></div>
+				<div id="mana-crystal-6" class="mana-crystal"></div>
+				<div id="mana-crystal-7" class="mana-crystal"></div>
+				<div id="mana-crystal-8" class="mana-crystal"></div>
+				<div id="mana-crystal-9" class="mana-crystal"></div>
+				<div id="mana-crystal-10" class="mana-crystal"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="card">
+	<div class="card" id="card-template">
+		<div class="card-cost card-circle">{{cost}}</div>
+		<div class="card-text">{{name}}</div>
+		<div class="card-attack card-circle">{{attack}}</div>
+		<div class="card-health card-circle">{{health}}</div>
+	</div>
+</template>

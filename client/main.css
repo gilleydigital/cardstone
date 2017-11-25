@@ -1,0 +1,321 @@
+* {
+	box-sizing: border-box;
+	user-select: none;
+}
+
+html, body, .container {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	overflow: hidden;
+}
+
+.container {
+	padding: 10px;
+}
+
+h1 {
+	margin-top: 0;
+}
+
+.card {
+	position: relative;
+	display: inline-table;
+	top: 0;
+	left: 0;
+	width: 95px;
+	height: 100px;
+	background: white;
+	border: 2px solid black;
+	padding: 10px 15px;
+	margin: 0 10px 10px;
+	text-align: center;
+	list-style-type: none;
+	cursor: pointer;
+}
+
+.card.in-play {
+	position: relative;
+	top: auto;
+	left: auto;
+}
+
+.card.in-play .card-cost {
+	display: none;
+}
+
+.card-text {
+	font-size: 15px;
+}
+
+.card-circle {
+	position: absolute;
+    border: 2px solid black;
+    border-radius: 50%;
+    font-size: 30px;
+    height: 40px;
+    width: 40px;
+    background: white;
+    line-height: 35px;
+}
+
+.card-cost {
+    top: -20px;
+    left: -20px;
+	background: #B8CEEB;
+}
+
+.card-attack {
+	bottom: -10px;
+	left: -10px;
+	background: #FFFCC3;
+}
+
+.card-health {
+	bottom: -10px;
+	right: -10px;
+	background: #FBC0CA;
+}
+
+.card.spent {
+	background: #cdcdcd;
+}
+
+.card.to-be-mulliganed {
+	background: red;
+}
+
+.handlike {
+	position: absolute;
+	left: 0;
+	bottom: -75px;
+	width: 100%;
+	height: 134px;
+	
+	padding: 10px;
+}
+
+.hand {
+	background: white;
+	
+	text-align: center;
+	
+	z-index: 90;
+}
+
+.hand.mulligan {
+    top: 50%;
+    left: 50%;
+	width: auto;
+	height: 164px;
+    transform: translateY(-50%) translateX(-50%);
+	padding: 30px;
+	border: 2px solid black;
+}
+
+.hand-area {
+	background: transparent;
+	
+	z-index: 80;
+}
+
+.hand-area.elevated {
+	z-index: 100;
+}
+
+.hand.colored {
+	background: #afffad;
+}
+
+.opp-hand {
+	position: absolute;
+	left: 0;
+	top: -60px;
+	width: 100%;
+	height: 134px;
+	padding: 10px;
+	background: white;
+	text-align: center;
+	z-index: 90;
+}
+
+.opp-hand .card {
+	transform: rotate(180deg);
+}
+
+.done-button {
+	position: absolute;
+	bottom: -50px;
+	left: 50%;
+	padding: 10px 20px;
+	border: 2px solid black;
+
+	transform: translateX(-50%);
+	cursor: pointer;
+}
+
+.deck {
+	display: none;
+}
+
+.draw {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	
+	padding: 15px 30px;
+	font-size: 18px;
+	
+	z-index: 30;
+}
+
+.hero {
+	position: absolute;
+	display: inline-block;
+	bottom: 90px;
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	background: white;
+	border: 2px solid black;
+	border-radius: 50%;
+	z-index: 99;
+	transform: translateX(-50%);
+}
+
+.hero .card-health {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	bottom: -15px;
+	right: -15px;
+}
+
+.opp-hero {
+	top: 90px;
+	bottom: auto;
+}
+
+.opponent-zone {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	z-index: 10;
+	
+	text-align: center;
+	
+	padding: 10px;
+}
+
+.opponent-zone.colored {
+	background: #ffadad;
+}
+
+.player-zone {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	z-index: 10;
+	
+	text-align: center;
+	
+	padding: 20px;
+}
+
+.player-zone.colored {
+	background: #afffad;
+}
+
+.battlefield {
+	position: absolute;
+	left: 0;
+	bottom: 50%;
+	width: 100%;
+	background: transparent;
+	text-align: center;
+	z-index: 20;
+}
+
+.throughline {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: black;
+	transform: translateY(-2px);
+	z-index: -1;
+}
+
+.end-turn-button {
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	background: white;
+	border: 2px solid black;
+	padding: 10px;
+	cursor: pointer;
+	transform: translateY(-50%);
+	z-index: 1;
+}
+
+.end-turn-button:hover {
+	background: #afffad;
+}
+
+/* Mana Bar */
+.mana-bar {
+	position: absolute;
+	right: 5px;
+	background: white;
+	border: 2px solid black;
+	padding: 6px;
+	z-index: 90;
+}
+
+.player-mana-bar {
+	bottom: 5px;
+}
+
+.opp-mana-bar {
+	top: 5px;	
+}
+
+.mana-numbers {
+	float: left;
+	border: 2px solid black;
+	padding: 6px;
+	margin-right: 10px;
+	line-height: 1;
+}
+
+.mana-crystals {
+	float: right;
+	height: 32px;
+}
+
+.mana-crystal {
+	display: inline-block;
+	border-radius: 50%;
+	border: 2px solid black;
+	margin: 9px 0;
+	width: 15px;
+	height: 15px;
+	visibility: hidden;
+}
+
+.mana-crystal.active {
+	visibility: visible;
+}
+
+.mana-crystal.filled {
+	background: black;
+}
